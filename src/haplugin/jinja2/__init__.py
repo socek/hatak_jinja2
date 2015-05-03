@@ -51,7 +51,7 @@ class Jinja2HelperMany(Jinja2Helper):
         prefix = prefix or self.prefix
         return '%s/%s' % (prefix, name)
 
-    def render_for(self, name, data):
+    def render_for(self, name, data, prefix=None):
         self.generate_data()
         self.data.update(data)
-        return self.render(self.get_template(name))
+        return self.render(self.get_template(name, prefix=prefix))
